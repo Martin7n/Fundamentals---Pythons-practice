@@ -1,0 +1,118 @@
+# Basic Syntax, Conditional Statements and Loops - Exercise
+# 01. Jenny('s Secret Message02.
+# Drink Something'
+# 03. Chat Codes'
+# 04. Maximum Multiple'
+# 05. Orders'
+# 06. String Pureness'
+# 07. Double Char'
+# 08. How Much Coffee Do You Need?'
+# 09. Sorting Hat'
+# 10. Mutate Strings✶'
+# 11. Easter Bread✶'
+# 12. Christmas Spirit✶)
+
+# 01. Jenny('s Secret Message02.
+
+name = input()
+if name == "Johnny":
+    print("Hello, my love!")
+else:
+    print(f"Hello, {name}!")
+
+# Drink Something'
+
+age = int(input())
+table = {"kid":"drink toddy", "teens":"drink coke", "young adults":"drink beer", "adults": "drink whisky"}
+
+if age <= 14:
+    print(table["kid"])
+elif age <= 18:
+    print(table["teens"])
+elif age <= 21:
+    print(table["young adults"])
+else:
+    print(table["adults"])
+
+# 03. Chat Codes'
+
+def chat(code):
+    if code == 88:
+        print("Hello")
+    elif code == 86:
+        print("How are you?")
+    elif code > 88:
+        print("Bye.")
+    else:
+        print("GREAT!")
+
+num = int(input())
+for n in range(num):
+    chat(int(input()))
+
+04. Maximum Multiple'
+
+divisor = int(input())
+boundary = int(input())
+result = [n for n in range(1, (boundary+1), 1) if (n % divisor == 0)]
+print(max(result))
+
+# 05. Orders'
+
+orders = int(input())
+order_price = 0
+for n in range(orders):
+    price, days, caps_per_day = float(input()), int(input()), int(input())
+    if (0.01 <= price <= 100) and (1 <= days <= 31) and (1 <= caps_per_day <= 2000):
+        daily_price = (price * days * caps_per_day)
+        order_price += daily_price
+        print(f"The price for the coffee is: ${daily_price:.2f}")
+print(f"Total: ${order_price:.2f}")
+
+# 06. String Pureness'
+
+new_str =""
+while True:
+    text = input()
+    if text == "End":
+        break
+    elif text == "SoftUni":
+        pass
+    else:
+        new_str = [x+x for x in text]
+        print("".join(new_str))
+
+# 08. How Much Coffee Do You Need?'
+
+events = ["coding", "dog" , "cat","movie"]
+total = 0
+while True:
+    command = input()
+    if command == "END":
+        break
+    if command.lower() in events:
+        if command.isupper():
+            total += 2
+        else:
+            total += 1
+
+print(total if total <= 5 else "You need extra sleep")
+
+# 09. Sorting Hat'
+command = input()
+while True:
+    command = input()
+    if command == "Voldemort":
+        print("You must not speak of that name!")
+        break
+    if command == "Welcome!":
+        print("Welcome to Hogwarts.")
+        break
+    elif len(command)<5:
+        print(f"{command} goes to Gryffindor.")
+    elif len(command)==5:
+        print(f"{command} goes to Slytherin.")
+    elif len(command)==6:
+        print(f"{command} goes to Ravenclaw.")
+    elif len(command) > 6:
+        print(f"{command} goes to Hufflepuff.")
